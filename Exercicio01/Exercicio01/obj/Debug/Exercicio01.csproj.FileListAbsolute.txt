@@ -5,3 +5,10 @@ C:\Users\aluno1\Source\Repos\Exercicio01\Exercicio01\obj\Debug\Exercicio01.cspro
 C:\Users\aluno1\Source\Repos\Exercicio01\Exercicio01\obj\Debug\Exercicio01.csproj.CoreCompileInputs.cache
 C:\Users\aluno1\Source\Repos\Exercicio01\Exercicio01\obj\Debug\Exercicio01.exe
 C:\Users\aluno1\Source\Repos\Exercicio01\Exercicio01\obj\Debug\Exercicio01.pdb
+C:\Users\aluno1\Downloads\DS-2-Modulo\Exercicio01\Exercicio01\bin\Debug\Exercicio01.exe.config
+C:\Users\aluno1\Downloads\DS-2-Modulo\Exercicio01\Exercicio01\bin\Debug\Exercicio01.exe
+C:\Users\aluno1\Downloads\DS-2-Modulo\Exercicio01\Exercicio01\bin\Debug\Exercicio01.pdb
+C:\Users\aluno1\Downloads\DS-2-Modulo\Exercicio01\Exercicio01\obj\Debug\Exercicio01.csprojAssemblyReference.cache
+C:\Users\aluno1\Downloads\DS-2-Modulo\Exercicio01\Exercicio01\obj\Debug\Exercicio01.csproj.CoreCompileInputs.cache
+C:\Users\aluno1\Downloads\DS-2-Modulo\Exercicio01\Exercicio01\obj\Debug\Exercicio01.exe
+C:\Users\aluno1\Downloads\DS-2-Modulo\Exercicio01\Exercicio01\obj\Debug\Exercicio01.pdb
