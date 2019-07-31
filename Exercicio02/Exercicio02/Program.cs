@@ -17,6 +17,7 @@ namespace Exercicio02
 
             do
             {
+                Console.Clear();
                 Console.WriteLine("1- Cadastrar Carro");
                 Console.WriteLine("2- Cadastrar Caminhão");
                 Console.WriteLine("3- Consultar por Placa");
@@ -24,7 +25,16 @@ namespace Exercicio02
                 Console.WriteLine("5- Consultar Carro por Cor");
                 Console.WriteLine("6- Exibir todos os Carros cadastrados");
                 Console.WriteLine("7- Exibir todos os Caminhões cadastrados");
-                Console.WriteLine("Digite o numero da opção desejada:");
+                Console.WriteLine("");
+                Console.Write("Digite o numero da opção desejada: ");
+
+                try
+                {
+                    opcao = int.Parse(Console.ReadLine());
+                }catch(Exception e)
+                {
+                    opcao = 9;
+                }
 
                 switch (opcao)
                 {
@@ -46,6 +56,7 @@ namespace Exercicio02
                         break;
                     default:
                         Console.WriteLine("Opção Inválida, pressione uma tecla para continuar");
+                        Console.ReadKey();
                         break;
                 }
 
