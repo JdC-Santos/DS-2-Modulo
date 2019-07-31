@@ -41,6 +41,7 @@ namespace Exercicio02
                     case 0:
                         break;
                     case 1:
+                        
                         break;
                     case 2:
                         break;
@@ -61,6 +62,12 @@ namespace Exercicio02
                 }
 
             } while (opcao != 0);
+        }
+
+        public Carro CadastraCarro()
+        {
+            Carro carro = new Carro();
+            return carro;
         }
     }
 }

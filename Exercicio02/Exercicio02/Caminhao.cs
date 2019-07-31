@@ -12,6 +12,10 @@ namespace Exercicio02
         private double PesoMaximoCarga;
         private bool temCarga;
 
+        public Caminhao()
+        {
+        }
+
         public Caminhao(int nrEixos, double pesoMaximoCarga1, bool temCarga,
                         string modelo, string fabricante, int ano, string cor, int nrPortas) : 
                         base(modelo, fabricante, ano, cor, nrPortas)

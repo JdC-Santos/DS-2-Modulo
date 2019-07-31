@@ -12,6 +12,10 @@ namespace Exercicio02
         private bool Bagageiro;
         private int QtPassageiros;
 
+        public Carro()
+        {
+        }
+
         public Carro(int capacidadePortaMala1, bool bagageiro1, int qtPassageiros1, 
                      string modelo, string fabricante, int ano, string cor, int nrPortas) : 
                      base(modelo, fabricante, ano, cor, nrPortas)
