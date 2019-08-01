@@ -10,7 +10,10 @@ namespace Exercicio02
     {
         static void Main(string[] args)
         {
+            int qtCarro = 0;
             Carro[] carros = new Carro[300];
+
+            int qtCaminhao = 0;
             Caminhao[] caminhaos = new Caminhao[200];
 
             int opcao = 9;
@@ -41,7 +44,8 @@ namespace Exercicio02
                     case 0:
                         break;
                     case 1:
-                        
+                        carros[qtCarro] = CadastraCarro();
+                        qtCarro++;
                         break;
                     case 2:
                         break;
@@ -64,9 +68,119 @@ namespace Exercicio02
             } while (opcao != 0);
         }
 
-        public Carro CadastraCarro()
+        static public Carro CadastraCarro()
         {
+
+            Console.Clear();
             Carro carro = new Carro();
+
+            Console.Write("Digite o nome do fabricante do carro: ");
+            carro.Fabricante1 = Console.ReadLine();
+
+            Console.Write("Digite o modelo do carro: ");
+            carro.Modelo1 = Console.ReadLine();
+
+            bool ok = false;
+            do
+            {
+                try
+                {
+                    Console.Write("Digite o ano do carro: ");
+                    carro.Ano1 = int.Parse(Console.ReadLine());
+                    ok = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Digite um número inteiro! Pressione uma tecla para continuar");
+                    Console.ReadKey();
+                }
+
+            } while (!ok);
+            ok = false;
+            do
+            {
+                try
+                {
+                    Console.Write("Digite o número de portas do carro: ");
+                    carro.NrPortas1 = int.Parse(Console.ReadLine());
+                    ok = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Digite um número inteiro! Pressione uma tecla para continuar");
+                    Console.ReadKey();
+                }
+
+            } while (!ok);
+            ok = false;
+
+            do
+            {
+                try
+                {
+                    Console.Write("Digite a cor do carro: ");
+                    carro.Cor1 = Console.ReadLine();
+                    ok = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Digite um número inteiro! Pressione uma tecla para continuar");
+                    Console.ReadKey();
+                }
+
+            } while (!ok);
+            ok = false;
+
+            do
+            {
+                try
+                {
+
+                    Console.Write("Digite a quantidade de passageiros que cabem no carro: ");
+                    carro.QtPassageiros1 = int.Parse(Console.ReadLine());
+                    ok = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Digite um número inteiro! Pressione uma tecla para continuar");
+                    Console.ReadKey();
+                }
+
+            } while (!ok);
+            ok = false;
+
+            do
+            {
+                try
+                {
+                    Console.Write("Digite a capacidade do porta malas: ");
+                    carro.CapacidadePortaMala1 = int.Parse(Console.ReadLine());
+                    ok = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Digite um número inteiro! Pressione uma tecla para continuar");
+                    Console.ReadKey();
+                }
+
+            } while (!ok);
+            ok = false;
+
+            Console.Write("O carro tem bagageiro [ S | N ] ? ");
+            if (Console.ReadLine().ToUpper() == "S")
+            {
+                carro.Bagageiro1 = true;
+            }
+            else
+            {
+                carro.Bagageiro1 = false;
+            }
+
+           
+
+            Console.Write("Carro cadastrado com sucesso! Pressione uma tecla para continuar.");
+            Console.ReadKey();
+
             return carro;
         }
     }
