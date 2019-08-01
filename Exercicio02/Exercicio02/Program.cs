@@ -48,6 +48,8 @@ namespace Exercicio02
                         qtCarro++;
                         break;
                     case 2:
+                        caminhaos[qtCaminhao] = CadastraCaminhao();
+                        qtCaminhao++;
                         break;
                     case 3:
                         break;
@@ -176,7 +178,119 @@ namespace Exercicio02
                 carro.Bagageiro1 = false;
             }
 
-           
+            Console.Write("Carro cadastrado com sucesso! Pressione uma tecla para continuar.");
+            Console.ReadKey();
+
+            return carro;
+        }
+
+        static public Caminhao CadastraCaminhao()
+        {
+
+            Console.Clear();
+            Caminhao carro = new Caminhao();
+
+            Console.Write("Digite o nome do fabricante do caminhao: ");
+            carro.Fabricante1 = Console.ReadLine();
+
+            Console.Write("Digite o modelo do caminhao: ");
+            carro.Modelo1 = Console.ReadLine();
+
+            bool ok = false;
+            do
+            {
+                try
+                {
+                    Console.Write("Digite o ano do caminhao: ");
+                    carro.Ano1 = int.Parse(Console.ReadLine());
+                    ok = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Digite um número inteiro! Pressione uma tecla para continuar");
+                    Console.ReadKey();
+                }
+
+            } while (!ok);
+            ok = false;
+            do
+            {
+                try
+                {
+                    Console.Write("Digite o número de portas do caminhao: ");
+                    carro.NrPortas1 = int.Parse(Console.ReadLine());
+                    ok = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Digite um número inteiro! Pressione uma tecla para continuar");
+                    Console.ReadKey();
+                }
+
+            } while (!ok);
+            ok = false;
+
+            do
+            {
+                try
+                {
+                    Console.Write("Digite a cor do carro: ");
+                    carro.Cor1 = Console.ReadLine();
+                    ok = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Digite um número inteiro! Pressione uma tecla para continuar");
+                    Console.ReadKey();
+                }
+
+            } while (!ok);
+            ok = false;
+
+            do
+            {
+                try
+                {
+
+                    Console.Write("Digite a quantidade de eixos que o caminhão tem: ");
+                    carro.NrEixos = int.Parse(Console.ReadLine());
+                    ok = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Digite um número inteiro! Pressione uma tecla para continuar");
+                    Console.ReadKey();
+                }
+
+            } while (!ok);
+            ok = false;
+
+            do
+            {
+                try
+                {
+                    Console.Write("Digite a capacidade de carga: ");
+                    carro.PesoMaximoCarga1 = int.Parse(Console.ReadLine());
+                    ok = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Digite um número inteiro! Pressione uma tecla para continuar");
+                    Console.ReadKey();
+                }
+
+            } while (!ok);
+            ok = false;
+
+            Console.Write("O caminhao está com carga [ S | N ] ? ");
+            if (Console.ReadLine().ToUpper() == "S")
+            {
+                carro.TemCarga = true;
+            }
+            else
+            {
+                carro.TemCarga = false;
+            }
 
             Console.Write("Carro cadastrado com sucesso! Pressione uma tecla para continuar.");
             Console.ReadKey();
