@@ -13,14 +13,16 @@ namespace Exercicio02
         private int Ano;
         private string Cor;
         private int NrPortas;
+        private string placa;
 
-        public Veiculo(string modelo, string fabricante, int ano, string cor, int nrPortas)
+        public Veiculo(string modelo, string fabricante, int ano, string cor, int nrPortas, string placa1)
         {
             Modelo1 = modelo;
             Fabricante1 = fabricante;
             Ano1 = ano;
             Cor1 = cor;
             NrPortas1 = nrPortas;
+            placa = placa1;
         }
 
         protected Veiculo()
@@ -32,5 +34,6 @@ namespace Exercicio02
         public int Ano1 { get => Ano; set => Ano = value; }
         public string Cor1 { get => Cor; set => Cor = value; }
         public int NrPortas1 { get => NrPortas; set => NrPortas = value; }
+        public string Placa1 { get => placa; set => placa = value;  }
     }
 }

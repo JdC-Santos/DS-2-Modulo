@@ -17,8 +17,8 @@ namespace Exercicio02
         }
 
         public Caminhao(int nrEixos, double pesoMaximoCarga1, bool temCarga,
-                        string modelo, string fabricante, int ano, string cor, int nrPortas) : 
-                        base(modelo, fabricante, ano, cor, nrPortas)
+                        string modelo, string fabricante, int ano, string cor, int nrPortas, string placa) : 
+                        base(modelo, fabricante, ano, cor, nrPortas, placa)
         {
             NrEixos = nrEixos;
             PesoMaximoCarga1 = pesoMaximoCarga1;

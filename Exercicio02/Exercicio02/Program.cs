@@ -8,6 +8,7 @@ namespace Exercicio02
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             int qtCarro = 0;
@@ -52,8 +53,35 @@ namespace Exercicio02
                         qtCaminhao++;
                         break;
                     case 3:
+                        Console.Write("Digite o numero da placa que deseja procurar: ");
+                        string placa = Console.ReadLine();
+                        Veiculo c = ConsultaPlaca(placa, carros, caminhaos);
+                        if (c == null)
+                        {
+                            Console.WriteLine("Não existe veiculo com esta placa!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Informações do veiculo:");
+                            Console.WriteLine("Modelo:"+c.Modelo1);
+                        }
+                        Console.WriteLine(" Pressione ENTER para continuar...");
+                        Console.ReadKey();
                         break;
                     case 4:
+                        Console.WriteLine("Digite o modelo/marca do caminhão");
+                        Caminhao c1 = BuscaCaminhao(caminhaos, Console.ReadLine());
+
+                        if (c1 == null)
+                        {
+                            Console.WriteLine("Não foi encontrado nenhum com este modelo/marca");
+                        }
+                        else
+                        {
+
+                        }
+                        Console.WriteLine("Pressione uma tecla para continuar");
+                        Console.ReadKey();
                         break;
                     case 5:
                         break;
@@ -66,7 +94,6 @@ namespace Exercicio02
                         Console.ReadKey();
                         break;
                 }
-
             } while (opcao != 0);
         }
 
@@ -177,6 +204,9 @@ namespace Exercicio02
             {
                 carro.Bagageiro1 = false;
             }
+
+            Console.Write("Digite a placa do veiculo: ");
+            carro.Placa1 = Console.ReadLine();
 
             Console.Write("Carro cadastrado com sucesso! Pressione uma tecla para continuar.");
             Console.ReadKey();
@@ -292,10 +322,46 @@ namespace Exercicio02
                 carro.TemCarga = false;
             }
 
+            Console.Write("Digite a placa do veiculo: ");
+            carro.Placa1 = Console.ReadLine();
+
             Console.Write("Carro cadastrado com sucesso! Pressione uma tecla para continuar.");
             Console.ReadKey();
 
             return carro;
+        }
+
+        static public Veiculo ConsultaPlaca(string placa, Carro[] carros, Caminhao[] caminhoes)
+        {
+            foreach (Carro carro in carros)
+            {
+                if (carro != null && carro.Placa1 == placa)
+                {
+                    return carro;
+                }
+            }
+
+            foreach (Caminhao caminhao in caminhoes)
+            {
+                if (caminhao != null && caminhao.Placa1 == placa)
+                {
+                    return caminhao;
+                }
+            }
+
+            return null;
+        }
+
+        static public Caminhao BuscaCaminhao(Caminhao[] caminhoes, string modelo)
+        {
+            foreach (Caminhao caminhao in caminhoes)
+            {
+                if (caminhao != null && caminhao.Modelo1 == modelo)
+                {
+                    return caminhao;
+                }
+            }
+            return null;
         }
     }
 }

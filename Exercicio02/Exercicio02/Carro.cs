@@ -17,8 +17,8 @@ namespace Exercicio02
         }
 
         public Carro(int capacidadePortaMala1, bool bagageiro1, int qtPassageiros1, 
-                     string modelo, string fabricante, int ano, string cor, int nrPortas) : 
-                     base(modelo, fabricante, ano, cor, nrPortas)
+                     string modelo, string fabricante, int ano, string cor, int nrPortas, string placa) : 
+                     base(modelo, fabricante, ano, cor, nrPortas, placa)
         {
             CapacidadePortaMala1 = capacidadePortaMala1;
             Bagageiro1 = bagageiro1;
