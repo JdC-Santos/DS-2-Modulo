@@ -53,22 +53,19 @@ namespace Exercicio02
                         qtCaminhao++;
                         break;
                     case 3:
+                        Console.Clear();
                         Console.Write("Digite o numero da placa que deseja procurar: ");
                         string placa = Console.ReadLine();
-                        Veiculo c = ConsultaPlaca(placa, carros, caminhaos);
-                        if (c == null)
+                        if (!ConsultaPlaca(placa, carros, caminhaos))
                         {
                             Console.WriteLine("Não existe veiculo com esta placa!");
                         }
-                        else
-                        {
-                            Console.WriteLine("Informações do veiculo:");
-                            Console.WriteLine("Modelo:"+c.Modelo1);
-                        }
+                        
                         Console.WriteLine(" Pressione ENTER para continuar...");
                         Console.ReadKey();
                         break;
                     case 4:
+                        Console.Clear();
                         Console.WriteLine("Digite o modelo/marca do caminhão");
                         Caminhao c1 = BuscaCaminhao(caminhaos, Console.ReadLine());
 
@@ -78,12 +75,22 @@ namespace Exercicio02
                         }
                         else
                         {
-                            Console.WriteLine("Modelo:" + c1.Modelo1);
+                            Console.WriteLine("Informações do veiculo:");
+                            Console.WriteLine("Fabricante: " + c1.Fabricante1);
+                            Console.WriteLine("Modelo: " + c1.Modelo1);
+                            Console.WriteLine("Cor: " + c1.Cor1);
+                            Console.WriteLine("Ano: " + c1.Ano1);
+                            Console.WriteLine("qtd Portas: " + c1.NrPortas1);
+                            Console.WriteLine("Placa: " + c1.Placa1);
+                            Console.WriteLine("tem carga: " + (c1.TemCarga ? "sim" : "nao"));
+                            Console.WriteLine("Nº de Eixos: " + c1.NrEixos);
+                            Console.WriteLine("Peso maximo da carga (kg)" + c1.PesoMaximoCarga1);
                         }
                         Console.WriteLine("Pressione uma tecla para continuar");
                         Console.ReadKey();
                         break;
                     case 5:
+                        Console.Clear();
                         Console.WriteLine("Digite a cor do veiculo que deseja buscar");
                         string cor = Console.ReadLine();
 
@@ -95,6 +102,7 @@ namespace Exercicio02
                         Console.ReadKey();
                         break;
                     case 6:
+                        Console.Clear();
                         if (!ListaCarros(carros)){
                             Console.WriteLine("Nenhum carro cadastrado");
                         }
@@ -102,14 +110,16 @@ namespace Exercicio02
                         Console.ReadKey();
                         break;
                     case 7:
-                        if (!ListaCarros(carros))
+                        Console.Clear();
+                        if (!ListaCaminhoes(caminhaos))
                         {
-                            Console.WriteLine("Nenhum carro cadastrado");
+                            Console.WriteLine("Nenhum caminhao cadastrado");
                         }
                         Console.WriteLine("Pressione uma tecla para continuar");
                         Console.ReadKey();
                         break;
                     default:
+                        Console.Clear();
                         Console.WriteLine("Opção Inválida, pressione uma tecla para continuar");
                         Console.ReadKey();
                         break;
@@ -228,7 +238,7 @@ namespace Exercicio02
             Console.Write("Digite a placa do veiculo: ");
             carro.Placa1 = Console.ReadLine();
 
-            Console.Write("Carro cadastrado com sucesso! Pressione uma tecla para continuar.");
+            Console.Write("Carro cadastrado com sucesso!\nPressione uma tecla para continuar.");
             Console.ReadKey();
 
             return carro;
@@ -351,25 +361,30 @@ namespace Exercicio02
             return carro;
         }
 
-        static public Veiculo ConsultaPlaca(string placa, Carro[] carros, Caminhao[] caminhoes)
+        static public bool ConsultaPlaca(string placa, Carro[] carros, Caminhao[] caminhoes)
         {
+            bool encontrou = false;
             foreach (Carro carro in carros)
             {
                 if (carro != null && carro.Placa1 == placa)
                 {
-                    return carro;
+
+                    ShowCarro(carro, "1");
+                    encontrou = true;
                 }
             }
 
             foreach (Caminhao caminhao in caminhoes)
             {
+                int nr = 1;
                 if (caminhao != null && caminhao.Placa1 == placa)
                 {
-                    return caminhao;
+                    ShowCaminhao(caminhao, nr.ToString());
+                    encontrou = true;
                 }
             }
 
-            return null;
+            return encontrou;
         }
 
         static public Caminhao BuscaCaminhao(Caminhao[] caminhoes, string modelo)
@@ -389,21 +404,23 @@ namespace Exercicio02
             bool Encontrou = false;
             foreach (Carro carro in carros)
             {
+                int nr = 1;
                 if (carro != null && carro.Cor1 == cor)
                 {
-                    Console.WriteLine("Carro=============");
-                    Console.WriteLine("Modelo" + carro.Cor1);
+                    ShowCarro(carro, nr.ToString());
+                    nr++;
                     Encontrou = true;
                 }
             }
 
             foreach (Caminhao caminhao in caminhoes)
             {
+                int nr = 1;
                 if (caminhao != null && caminhao.Cor1 == cor)
                 {
-                    Console.WriteLine("caminhao=============");
-                    Console.WriteLine("Modelo" + caminhao.Cor1);
+                    ShowCaminhao(caminhao, nr.ToString());
                     Encontrou = true;
+                    nr++;
                 }
             }
 
@@ -420,8 +437,8 @@ namespace Exercicio02
                 if(carro != null)
                 {
                     encontrou = true;
-                    Console.WriteLine("-------------------------------------");
-                    Console.WriteLine("Carro nº" + nr);
+                    ShowCarro(carro, nr.ToString());
+                    nr++;
                 }
             }
             return encontrou;
@@ -437,11 +454,44 @@ namespace Exercicio02
                 if (caminhao != null)
                 {
                     encontrou = true;
-                    Console.WriteLine("-------------------------------------");
-                    Console.WriteLine("Carro nº" + nr);
+                    ShowCaminhao(caminhao, nr.ToString());
+                    nr++;
                 }
             }
             return encontrou;
+        }
+
+        static public void ShowCarro(Carro carro, string nr = "" )
+        {
+
+            Console.WriteLine("Informações do veiculo: Carro");
+            Console.WriteLine("Fabricante: " + carro.Fabricante1);
+            Console.WriteLine("Modelo: " + carro.Modelo1);
+            Console.WriteLine("Cor: " + carro.Cor1);
+            Console.WriteLine("Ano: " + carro.Ano1);
+            Console.WriteLine("qtd Portas: " + carro.NrPortas1);
+            Console.WriteLine("Placa: " + carro.Placa1);
+            Console.WriteLine("Qtd Max. Passageiros: " + carro.QtPassageiros1);
+            Console.WriteLine("Capacidade Porta malas (kg): " + carro.CapacidadePortaMala1);
+            Console.WriteLine("Tem bagageiro: " + (carro.Bagageiro1 ? "sim" : "não"));
+            Console.WriteLine("-------------------------------------------------");
+        }
+
+        static public void ShowCaminhao(Caminhao caminhao, string nr)
+        {
+
+           
+            Console.WriteLine("Informações do veiculo: Caminhao ");
+            Console.WriteLine("Fabricante: " + caminhao.Fabricante1);
+            Console.WriteLine("Modelo: " + caminhao.Modelo1);
+            Console.WriteLine("Cor: " + caminhao.Cor1);
+            Console.WriteLine("Ano: " + caminhao.Ano1);
+            Console.WriteLine("qtd Portas: " + caminhao.NrPortas1);
+            Console.WriteLine("Placa: " + caminhao.Placa1);
+            Console.WriteLine("tem carga: " + (caminhao.TemCarga ? "sim" : "nao"));
+            Console.WriteLine("Nº de Eixos: " + caminhao.NrEixos);
+            Console.WriteLine("Peso maximo da carga (kg)" + caminhao.PesoMaximoCarga1);
+            Console.WriteLine("-------------------------------------------------");
         }
     }
 }
