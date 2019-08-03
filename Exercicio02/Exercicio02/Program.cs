@@ -78,16 +78,36 @@ namespace Exercicio02
                         }
                         else
                         {
-
+                            Console.WriteLine("Modelo:" + c1.Modelo1);
                         }
                         Console.WriteLine("Pressione uma tecla para continuar");
                         Console.ReadKey();
                         break;
                     case 5:
+                        Console.WriteLine("Digite a cor do veiculo que deseja buscar");
+                        string cor = Console.ReadLine();
+
+                        if (!BuscaCor(cor, carros, caminhaos))
+                        {
+                            Console.WriteLine("Não foi encontrado nenhum veiculo com essa cor");
+                        }
+                        Console.Write("Pressione uma tecla para continuar");
+                        Console.ReadKey();
                         break;
                     case 6:
+                        if (!ListaCarros(carros)){
+                            Console.WriteLine("Nenhum carro cadastrado");
+                        }
+                        Console.WriteLine("Pressione uma tecla para continuar");
+                        Console.ReadKey();
                         break;
                     case 7:
+                        if (!ListaCarros(carros))
+                        {
+                            Console.WriteLine("Nenhum carro cadastrado");
+                        }
+                        Console.WriteLine("Pressione uma tecla para continuar");
+                        Console.ReadKey();
                         break;
                     default:
                         Console.WriteLine("Opção Inválida, pressione uma tecla para continuar");
@@ -362,6 +382,66 @@ namespace Exercicio02
                 }
             }
             return null;
+        }
+
+        static public bool BuscaCor(string cor, Carro[] carros, Caminhao[] caminhoes)
+        {
+            bool Encontrou = false;
+            foreach (Carro carro in carros)
+            {
+                if (carro != null && carro.Cor1 == cor)
+                {
+                    Console.WriteLine("Carro=============");
+                    Console.WriteLine("Modelo" + carro.Cor1);
+                    Encontrou = true;
+                }
+            }
+
+            foreach (Caminhao caminhao in caminhoes)
+            {
+                if (caminhao != null && caminhao.Cor1 == cor)
+                {
+                    Console.WriteLine("caminhao=============");
+                    Console.WriteLine("Modelo" + caminhao.Cor1);
+                    Encontrou = true;
+                }
+            }
+
+            return Encontrou;
+        }
+
+        static public bool ListaCarros(Carro[] carros)
+        {
+            int nr = 1;
+            bool encontrou = false;
+            foreach(Carro carro in carros)
+            {
+
+                if(carro != null)
+                {
+                    encontrou = true;
+                    Console.WriteLine("-------------------------------------");
+                    Console.WriteLine("Carro nº" + nr);
+                }
+            }
+            return encontrou;
+        }
+
+        static public bool ListaCaminhoes(Caminhao[] caminhoes)
+        {
+            int nr = 1;
+            bool encontrou = false;
+            foreach (Caminhao caminhao in caminhoes)
+            {
+
+                if (caminhao != null)
+                {
+                    encontrou = true;
+                    Console.WriteLine("-------------------------------------");
+                    Console.WriteLine("Carro nº" + nr);
+                }
+            }
+            return encontrou;
         }
     }
 }
