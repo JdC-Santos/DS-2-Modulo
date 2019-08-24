@@ -9,10 +9,11 @@ namespace TryChat
 {
     class Program
     {
+        static string nome = "";
         static void Main(string[] args)
         {
             string arquivo = "";
-            string nome = "";
+            
 
             Console.WriteLine("Digite o caminho para o arquivo");
             Console.WriteLine(@"Exemplo: caminho\arquivo.bin");
@@ -24,7 +25,8 @@ namespace TryChat
             if (!File.Exists(arquivo))
             {
                 StreamWriter st = new StreamWriter(arquivo,true);
-                st.Write("[ Bem vindo ]\n");
+                st.Write("[System]: ");
+                st.Write(" Bem vindo \n");
                 st.Close();
             }
 
@@ -60,7 +62,7 @@ namespace TryChat
                     {
                         while (!rd.EndOfStream)
                         {
-                            Console.WriteLine("Mensagem :" + rd.ReadLine());
+                            Console.WriteLine(rd.ReadLine());
                         }
                         rd.Close();
                     }
@@ -83,6 +85,7 @@ namespace TryChat
             Console.WriteLine("\n Digite A sua mensagem: ");
             string mensagem = Console.ReadLine();
 
+            sw.Write("[ "+nome+" ]: ");
             sw.Write(mensagem + "\n");
             
             sw.Close();
