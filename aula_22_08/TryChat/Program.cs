@@ -21,6 +21,13 @@ namespace TryChat
             Console.WriteLine("Digite o seu nick: ");
             nome = Console.ReadLine();
 
+            if (!File.Exists(arquivo))
+            {
+                StreamWriter st = new StreamWriter(arquivo,true);
+                st.Write("[ Bem vindo ]\n");
+                st.Close();
+            }
+
             AtualizarChat(arquivo);
         }
 
@@ -71,26 +78,14 @@ namespace TryChat
 
         static public void Gravar(string caminho)
         {
+            StreamWriter sw = new StreamWriter(caminho, true);
+
             Console.WriteLine("\n Digite A sua mensagem: ");
             string mensagem = Console.ReadLine();
-            FileStream fs;
 
-            if (File.Exists(caminho))
-            {
-                fs = new FileStream(caminho, FileMode.Append);
-            }
-            else
-            {
-                fs = new FileStream(caminho, FileMode.Create);
-            }
-
-            BinaryWriter bw = new BinaryWriter(fs);
-
-            bw.Write(mensagem + "\n");
-
-            bw.Flush();
-            bw.Close();
-            fs.Close();
+            sw.Write(mensagem + "\n");
+            
+            sw.Close();
         }
     }
 }
