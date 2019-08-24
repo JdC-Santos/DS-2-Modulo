@@ -1,0 +1,7 @@
+C:\Users\aluno1\Downloads\DS-2-Modulo\aula_22_08\TryChat\bin\Debug\TryChat.exe.config
+C:\Users\aluno1\Downloads\DS-2-Modulo\aula_22_08\TryChat\bin\Debug\TryChat.exe
+C:\Users\aluno1\Downloads\DS-2-Modulo\aula_22_08\TryChat\bin\Debug\TryChat.pdb
+C:\Users\aluno1\Downloads\DS-2-Modulo\aula_22_08\TryChat\obj\Debug\TryChat.csprojAssemblyReference.cache
+C:\Users\aluno1\Downloads\DS-2-Modulo\aula_22_08\TryChat\obj\Debug\TryChat.csproj.CoreCompileInputs.cache
+C:\Users\aluno1\Downloads\DS-2-Modulo\aula_22_08\TryChat\obj\Debug\TryChat.exe
+C:\Users\aluno1\Downloads\DS-2-Modulo\aula_22_08\TryChat\obj\Debug\TryChat.pdb
